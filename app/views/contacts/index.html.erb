@@ -2,6 +2,12 @@
 	<thead>
 		<tr>
 			<th>Name</th>
+			<th>Group</th>
+			<th>Email</th>
+			<th>Telephone</th>
+			<th></th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 
@@ -9,4 +15,7 @@
 </table>
 
 </br>
-<%= link_to "New Person", new_contact_path, class: "btn btn-default" %>
+<div class = "form-group">
+	<%= link_to "New Contact", new_contact_path, class: "btn btn-success col-md-2 col-md-offset-7" %>
+	<%= link_to "New Group", new_group_path, class: "btn btn-success col-md-2 col-md-offset-1" %>
+</div>

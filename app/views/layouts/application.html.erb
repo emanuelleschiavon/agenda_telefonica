@@ -12,10 +12,6 @@
 
 	<%= nav_bar brand: "Phonebook", brand_link: root_url do %>
 	<%= form_tag find_contact_path, method: :get, class: "navbar-form navbar-right" do %>
-	<div class="form-group">
-		<%= text_field_tag :name, @name, class: "form-control" %>
-		<%= button_to "Find", nil, class: "btn btn-primary"%>
-	</div>
 	<% end %>
 	<% end %>
 

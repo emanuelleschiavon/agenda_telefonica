@@ -1,15 +1,13 @@
 class ContactsController < ApplicationController
 
-	before_action :set_contact, only: [:destroy, :edit, :update]
+	before_action :set_contact, only: [:destroy, :edit, :update, :show]
 
 	def index
-		@contacts = Contact.order(:name)
+		@contacts = Contact.includes(:group).order(:name)
 	end
 
 	def new
 		@contact = Contact.new
-		@groups = Group.all
-		renderiza :new
 	end
 
 	def create
@@ -23,7 +21,6 @@ class ContactsController < ApplicationController
 	end
 
 	def edit
-		@groups = Group.all
 		renderiza :edit
 	end
 
@@ -41,13 +38,7 @@ class ContactsController < ApplicationController
 		redirect_to root_url
 	end
 
-	def find
-		@name = params[ :name ]
-		@contacts = Contact.where "name like ?", "%#{@name}%"
-	end
-
 	def show
-		set_contact
 		@group = Group.find(@contact.group_id)
 	end
 
@@ -62,8 +53,7 @@ class ContactsController < ApplicationController
 	end
 
 	def contact_params
-		params.require(:contact)
-		.permit(:name, :telephone, :email, :group_id)
+		params.require(:contact).permit(:name, :telephone, :email, :group_id)
 	end
 
 end

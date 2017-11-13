@@ -1,16 +1,19 @@
 <tbody>
-    <tr>
-           <td> <%= contact.name %></td>
-            <td><%= link_to "Show",
-                            contact_path(contact), class: "btn btn-info"%>
-            </td>
-            <td><%= link_to "Edit",
-                edit_contact_path(contact), class: "btn btn-warning"%>
-            </td>
-            <td><%= button_to "Delete", contact,
-                                method: :delete,
-                                class: "btn btn-danger",
-                                data: {confirm: "Are you sure that you remove #{contact.name}?"}%>
-            </td>
-    </tr>
-</tbody>
+	<tr class = "paciente">
+		<td class = "info-nome"> <%= contact.name %></td>
+		<td> <%= contact.group.name %></td>
+		<td> <%= contact.email %></td>
+		<td> <%= contact.telephone %></td>
+		<td class = "col-md-1 col-md-offset-9"><%= link_to "Show",
+			contact_path(contact), class: "btn btn-info"%>
+		</td>
+		<td class = "col-md-1 col-md-offset-10"><%= link_to "Edit",
+			edit_contact_path(contact), class: "btn btn-warning"%>
+		</td>
+		<td class = "col-md-1 col-md-offset-11"><%= button_to "Delete", contact,
+			method: :delete,
+			class: "btn btn-danger",
+				data: {confirm: "Are you sure that you remove #{contact.name}?"}%>
+			</td>
+		</tr>
+	</tbody>
