@@ -8,21 +8,13 @@
 	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
+<body class="content">
+	<%= render "layouts/header" %>
 
-	<%= nav_bar brand: "Phonebook", brand_link: root_url do %>
-	<%= form_tag find_contact_path, method: :get, class: "navbar-form navbar-right" do %>
-	<div class="form-group form-inline">
-		<%= label_tag :Filter %>
-		<%= text_field_tag :name, @name, class: "form-control" %>
-	</div>
-	<% end %>
-	<% end %>
-
-	<div class="container">
+	<div class="container main-container">
 		<div id="flash">
 			<% flash.each do |key, value| %>
-			<div class="alert alert-<%= key %>"><%= value %></div>
+				<div class="alert alert-<%= key %>"><%= value %></div>
 			<% end %>
 		</div>
 		<%= yield %>
